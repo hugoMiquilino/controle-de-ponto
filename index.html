@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Controle de Ponto</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body onload="startTime()">
+
+	<div id="header">
+		<h1>Controle de Ponto</h1>
+		<a href="admin.html">Login Administrador</a>
+	</div>
+
+	<div id="block">
+
+		<div id="content">
+			<p style="font-weight: bold;">Código do Funcionário:</p>
+			<input type="text" name="codFuncionario" value="">
+			<span>
+				<input type="submit" name="codFuncionario" value="Enter" id="enterData">
+			</span>
+			<div id="relogio"></div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		function startTime()
+		{
+		var today=new Date();
+		var h=today.getHours();
+		var m=today.getMinutes();
+		var s=today.getSeconds();
+		// adicione um zero na frente de números<10
+		m=checkTime(m);
+		s=checkTime(s);
+		document.getElementById('relogio').innerHTML=h+":"+m+":"+s;
+		t=setTimeout('startTime()',500);
+		}
+		function checkTime(i)
+		{
+		if (i<10)
+		{
+		i="0" + i;
+		}
+		return i;
+		}
+	</script>
+</body>
+</html>
