@@ -1,50 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
+
 <head>
-	<meta charset="utf-8">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Controle de Ponto</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body onload="startTime()">
 
-	<div id="header">
-		<h1>Controle de Ponto</h1>
-		<a href="admin.html">Login Administrador</a>
-	</div>
-
-	<div id="block">
-
-		<div id="content">
-			<p style="font-weight: bold;">Código do Funcionário:</p>
-			<input type="text" name="codFuncionario" value="">
-			<span>
-				<input type="submit" name="codFuncionario" value="Enter" id="enterData">
-			</span>
-			<div id="relogio"></div>
+	<div class="content">
+		<div class="codFunc-left">
+			<div class="codFunc-header">
+				<h1>Controle de Ponto</h1>
+			</div>
+			<form class="codFunc-form">
+				<div class="codFunc-item">
+					<label for="codFuncionario">Digite seu código</label>
+					<input type="text" id="codFuncionario" autocomplete="off" placeholder=" ">
+				</div>
+				<div class="codFunc-item" id="relogio"></div>
+				<button type="submit">Send It!</button>
+			</form>
+			<div class="codFunc-footer">
+				<p>Todos os direitos reservados.</p>
+			</div>
 		</div>
 	</div>
-
 	<script type="text/javascript">
-		function startTime()
-		{
-		var today=new Date();
-		var h=today.getHours();
-		var m=today.getMinutes();
-		var s=today.getSeconds();
-		// adicione um zero na frente de números<10
-		m=checkTime(m);
-		s=checkTime(s);
-		document.getElementById('relogio').innerHTML=h+":"+m+":"+s;
-		t=setTimeout('startTime()',500);
+		function startTime() {
+			var today = new Date();
+			var h = today.getHours();
+			var m = today.getMinutes();
+			var s = today.getSeconds();
+			// adicione um zero na frente de números<10
+			m = checkTime(m);
+			s = checkTime(s);
+			document.getElementById('relogio').innerHTML = h + ":" + m + ":" + s;
+			t = setTimeout('startTime()', 500);
 		}
-		function checkTime(i)
-		{
-		if (i<10)
-		{
-		i="0" + i;
-		}
-		return i;
+		function checkTime(i) {
+			if (i < 10) {
+				i = "0" + i;
+			}
+			return i;
 		}
 	</script>
+
 </body>
+
 </html>
